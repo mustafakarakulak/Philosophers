@@ -21,3 +21,5 @@ git:
 	git status
 	git commit -m "not finished"
 	git push
+
+.PHONY: git re fclean clean all

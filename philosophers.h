@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:10:54 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 17:02:08 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:41:56 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@
 
 typedef struct s_philo
 {
+	int			id_philo;
 	int			nb_philo;
 	int			time_die;
 	int			time_eat;
 	int			time_sleep;
+	int			nb_eat;
 	pthread_t	thread;
 }	t_philo;
 
-void	arg_converter(t_philo *philo, char **av);
+void	arg_converter(t_philo *philo, int ac, char **av);
+void	ft_init_philo(int ac, t_philo *philo);
 int		arg_checker(int ac, char **av);
 
 void	ft_error(char *str);
