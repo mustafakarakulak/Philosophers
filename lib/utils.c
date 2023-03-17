@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:13:10 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 16:25:47 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/17 22:27:41 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error(char *str)
 {
 	printf("%s", str);
-	exit (1);
+	return (1);
 }
 
 int	ft_free(t_philo *data)
