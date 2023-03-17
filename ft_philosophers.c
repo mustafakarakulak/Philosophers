@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:09:47 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 18:40:09 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:13:27 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int	main(int ac, char **av)
 {
-	t_philo			*philo;
+	t_philo			*data;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	*death;
 
 	if (ac == 5 || ac == 6)
 	{
-		philo = malloc(sizeof(t_philo) * ft_atoi(av[1]));
+		data = malloc(sizeof(t_philo) * ft_atoi(av[1]));
 		if (arg_checker(ac, av) == 0)
 			ft_error("Error\n");
-		arg_converter(philo, ac, av);
-		if (philo->nb_philo < 1)
+		arg_converter(data, ac, av);
+		if (data->nb_philo < 1)
 			ft_error("Error\n");
 		death = malloc(sizeof(pthread_mutex_t));
-		forks = malloc(sizeof(pthread_mutex_t) * (philo->nb_philo));
-		ft_init_philo(ac, philo);
+		forks = malloc(sizeof(pthread_mutex_t) * (data->nb_philo));
+		ft_init_philo(ac, data);
 	}
 	else
 		ft_error("Error\n");
