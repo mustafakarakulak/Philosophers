@@ -6,13 +6,13 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:13:10 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 22:27:41 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/17 22:33:16 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-void	ft_error(char *str)
+int	ft_error(char *str)
 {
 	printf("%s", str);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:10:54 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 20:39:48 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/17 22:31:41 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	arg_converter(t_philo *philo, int ac, char **av);
 void	ft_init_philo(int ac, t_philo *philo);
 int		arg_checker(int ac, char **av);
 
-void	ft_error(char *str);
+int		ft_error(char *str);
 int		ft_free(t_philo *data);
 int		ft_atoi(char *str);
 

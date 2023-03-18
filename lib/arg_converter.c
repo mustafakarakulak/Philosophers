@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:32:33 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 21:30:20 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/17 22:46:14 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void	arg_converter(t_philo *data, int ac, char **av)
 		data->nb_eat = ft_atoi(av[5]);
 	else
 		data->nb_eat = -1;
+	if (data->nb_philo < 0 || data->nb_philo > 200)
+		ft_error("Error\n");
 }
