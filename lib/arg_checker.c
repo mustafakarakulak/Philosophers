@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:31:44 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 16:29:15 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:18:07 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	arg_checker(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
+		if (!av[i][0])
+			return (0);
 		while (av[i][j])
 		{
 			if (av[i][j] < '0' || av[i][j] > '9')

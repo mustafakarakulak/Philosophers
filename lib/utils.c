@@ -6,16 +6,15 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:13:10 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 22:33:16 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:20:15 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-int	ft_error(char *str)
+void	ft_error(char *str)
 {
 	printf("%s", str);
-	return (1);
 }
 
 int	ft_free(t_philo *data)

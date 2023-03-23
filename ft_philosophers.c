@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:09:47 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/17 22:40:40 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:20:06 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	main(int ac, char **av)
 	{
 		data = malloc(sizeof(t_philo) * ft_atoi(av[1]));
 		if (arg_checker(ac, av) == 0)
+		{
 			ft_error("Error\n");
+			return (1);
+		}
 		arg_converter(data, ac, av);
 		death = malloc(sizeof(pthread_mutex_t));
 		forks = malloc(sizeof(pthread_mutex_t) * (data->nb_philo));
