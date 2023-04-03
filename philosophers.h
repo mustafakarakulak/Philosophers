@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:10:54 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/23 17:20:23 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:37:32 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_philo
 	pthread_t	thread;
 }	t_philo;
 
-void	arg_converter(t_philo *philo, int ac, char **av);
+int		arg_converter(t_philo *data, int ac, char **av);
 void	ft_init_philo(int ac, t_philo *philo);
 int		arg_checker(int ac, char **av);
 

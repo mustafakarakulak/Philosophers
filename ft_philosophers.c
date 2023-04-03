@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:09:47 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/03/23 17:20:06 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:19:00 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	main(int ac, char **av)
 			ft_error("Error\n");
 			return (1);
 		}
-		arg_converter(data, ac, av);
+		if (arg_converter(data, ac, av) == 1)
+			return (1);
 		death = malloc(sizeof(pthread_mutex_t));
 		forks = malloc(sizeof(pthread_mutex_t) * (data->nb_philo));
 		ft_init_philo(ac, data);
