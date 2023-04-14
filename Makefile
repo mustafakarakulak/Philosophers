@@ -1,25 +1,30 @@
-SRC = lib/arg_checker.c lib/arg_converter.c lib/utils.c \
-		ft_philosophers.c lib/ft_init.c
+NAME		=	philo
 
-NAME = philosophers
+HEADER		=	./include/
 
-FLAG = -Wall -Wextra -Werror
+CC			=	gcc
 
-all:
-	gcc $(FLAG) $(SRC) -o $(NAME)
+CFLAGS		=	-Werror -Wall -Wextra -g -I -pthread
 
+SRCS		=	srcs/main.c \
+				srcs/activity.c \
+				srcs/threads.c \
+				srcs/init_and_parse.c \
+				srcs/utils_philo.c \
+				srcs/utils_lib.c \
 
-clean:
-	rm $(NAME)
+OBJS		=	$(SRCS:.c=.o)
 
-fclean: clean
+all			:	$(NAME)
 
-re: clean all
+$(NAME)		:	$(OBJS)
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+				rm -rf $(OBJS)
 
-git:
-	git add .
-	git status
-	git commit -m "not finished"
-	git push
+clean		:
+				rm -rf $(NAME)
 
-.PHONY: git re fclean clean all
+fclean		:
+				rm -rf $(NAME)
+
+re			:	fclean all
