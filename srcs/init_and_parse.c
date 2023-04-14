@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:09 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 18:18:46 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:24:59 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ int	initialize(t_pack *p)
 		p->ph[i].r_f = NULL;
 		pthread_mutex_init(&p->ph[i].l_f, NULL);
 		if (p->a.total == 1)
-			return (1);
+			return (0);
 		if (i == p->a.total - 1)
 			p->ph[i].r_f = &p->ph[0].l_f;
 		else
 			p->ph[i].r_f = &p->ph[i + 1].l_f;
 		i++;
 	}
-	return (1);
+	return (0);
 }

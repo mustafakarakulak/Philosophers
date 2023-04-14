@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:12 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 20:15:00 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:25:11 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	stop(t_pack *p)
 	while (++i < p->a.total)
 		pthread_mutex_destroy(&p->ph[i].l_f);
 	if (p->a.stop == 2)
-		printf("Each philosopher ate %d time(s)\n", p->a.m_eat);
+		printf("Each philosopher ate %d times.\n", p->a.m_eat);
 	free(p->ph);
 }
 
@@ -55,11 +55,11 @@ int	main(int argc, char **argv)
 
 	data = malloc(sizeof(t_pack));
 	if (!(parse_args(argc, argv, data)))
-		return (ft_exit("Invalid Arguments\n"));
+		return (ft_exit("Invalid Arguments.\n"));
 	data->ph = malloc(sizeof(t_philo) * data->a.total);
 	if (!data->ph)
-		return (ft_exit("Malloc returned NULL\n"));
-	if (!initialize(data) || !threading(data))
+		return (ft_exit("Malloc returned NULL.\n"));
+	if (initialize(data) || threading(data))
 	{
 		free(data->ph);
 		return (0);
