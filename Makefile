@@ -27,4 +27,10 @@ clean		:
 fclean		:
 				rm -rf $(NAME)
 
+git			:
+				git add .
+				git status
+				git commit -m "not now finished"
+				git push
+
 re			:	fclean all
