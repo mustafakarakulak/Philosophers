@@ -6,23 +6,11 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:09 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 20:24:59 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:55:50 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-
-int	ft_atoi(const char *str)
-{
-	int		i;
-	long	sum;
-
-	sum = 0;
-	i = -1;
-	while (str[++i])
-		sum = (sum * 10) + (str[i] - 48);
-	return (sum);
-}
 
 int	numeric(char **argv, int i, int j)
 {

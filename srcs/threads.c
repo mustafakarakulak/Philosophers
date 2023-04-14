@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:15 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 20:25:07 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:58:26 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*is_dead(void	*data)
 	t_philo					*ph;
 
 	ph = (t_philo *)data;
-	ft_usleep(ph->pa->die + 1);
+	ft_time(ph->pa->die + 1);
 	pthread_mutex_lock(&ph->pa->time_eat);
 	pthread_mutex_lock(&ph->pa->finish);
 	if (!check_death(ph, 0) && !ph->finish && ((actual_time() - ph->ms_eat) \
@@ -41,7 +41,7 @@ void	*thread(void *data)
 
 	ph = (t_philo *)data;
 	if (ph->id % 2 == 0)
-		ft_usleep(ph->pa->eat / 10);
+		ft_time(ph->pa->eat / 10);
 	while (!check_death(ph, 0))
 	{
 		pthread_create(&ph->thread_death_id, NULL, is_dead, data);
@@ -73,7 +73,7 @@ int	threading(t_pack *p)
 	{
 		p->ph[i].pa = &p->a;
 		if (pthread_create(&p->ph[i].thread_id, NULL, thread, &p->ph[i]) != 0)
-			return (ft_exit("Pthread did not return 0\n"));
+			return (ft_error("Pthread did not return 0\n"));
 		i++;
 	}
 	return (0);

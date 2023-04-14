@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:04:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 18:19:41 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:58:44 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,14 @@ typedef struct s_p
 	t_arg					a;
 }							t_pack;
 
+int				ft_atoi(const char *str);
 int				parse_args(int argc, char **argv, t_pack *p);
 int				initialize(t_pack *p);
-int				ft_exit(char *str);
+int				ft_error(char *str);
 void			write_status(char *str, t_philo *ph);
 long int		actual_time(void);
 void			ft_putstr_fd(char *s, int fd);
-void			ft_usleep(long int time_in_ms);
+void			ft_time(long int time_in_ms);
 int				threading(t_pack *p);
 void			activity(t_philo *ph);
 int				check_death(t_philo *ph, int i);
