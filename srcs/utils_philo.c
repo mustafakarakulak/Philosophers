@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:21 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 20:27:47 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:22:09 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ long int	actual_time(void)
 
 	time = 0;
 	if (gettimeofday(&current_time, NULL) == -1)
-		ft_error("Gettimeofday returned -1\n");
+		ft_exit("Gettimeofday returned -1\n");
 	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (time);
 }
 
-void	ft_time(long int time_in_ms)
+void	ft_usleep(long int time_in_ms)
 {
 	long int	start_time;
 

@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:05 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 20:28:06 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:09:30 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sleep_think(t_philo *ph)
 	pthread_mutex_lock(&ph->pa->write_mutex);
 	write_status("is sleeping\n", ph);
 	pthread_mutex_unlock(&ph->pa->write_mutex);
-	ft_time(ph->pa->sleep);
+	ft_usleep(ph->pa->sleep);
 	pthread_mutex_lock(&ph->pa->write_mutex);
 	write_status("is thinking\n", ph);
 	pthread_mutex_unlock(&ph->pa->write_mutex);
@@ -44,7 +44,7 @@ void	activity(t_philo *ph)
 	pthread_mutex_unlock(&ph->pa->write_mutex);
 	if (!ph->r_f)
 	{
-		ft_time(ph->pa->die * 2);
+		ft_usleep(ph->pa->die * 2);
 		return ;
 	}
 	pthread_mutex_lock(ph->r_f);
@@ -57,7 +57,7 @@ void	activity(t_philo *ph)
 	ph->ms_eat = actual_time();
 	pthread_mutex_unlock(&ph->pa->time_eat);
 	pthread_mutex_unlock(&ph->pa->write_mutex);
-	ft_time(ph->pa->eat);
+	ft_usleep(ph->pa->eat);
 	pthread_mutex_unlock(ph->r_f);
 	pthread_mutex_unlock(&ph->l_f);
 	sleep_think(ph);
