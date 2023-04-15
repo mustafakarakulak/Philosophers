@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:12 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:34:16 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:04:41 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	check_death2(t_pack *p)
 	return (0);
 }
 
-void	stop(t_pack *p)
+void	philo(t_pack *p)
 {
 	int	i;
 
 	i = -1;
-	while (!check_death2(p))
+	while (check_death2(p))
 		ft_usleep(1);
 	while (++i < p->a.total)
 		pthread_join(p->ph[i].thread_id, NULL);
@@ -64,5 +64,5 @@ int	main(int argc, char **argv)
 		free(data->ph);
 		return (0);
 	}
-	stop(data);
+	philo(data);
 }

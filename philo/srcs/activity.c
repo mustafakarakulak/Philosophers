@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:05 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:17:49 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:04:22 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	write_status(char *str, t_philo *ph)
 
 	time = -1;
 	time = actual_time() - ph->pa->start_t;
-	if (time >= 0 && time <= 2147483647 && !check_death(ph, 0))
+	if (time >= 0 && time <= 2147483647 && check_death(ph, 0))
 	{
 		printf("%ld ", time);
 		printf("Philo %d %s", ph->id, str);
