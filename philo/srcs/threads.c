@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:15 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 18:19:15 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/15 13:19:55 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ int	threading(t_pack *p)
 			return (ft_exit("Pthread did not return 0\n"));
 		i++;
 	}
-	return (1);
+	return (0);
 }

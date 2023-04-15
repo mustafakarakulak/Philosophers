@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:04:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 07:57:35 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/15 13:24:33 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_philo
 	int						finish;
 }							t_philo;
 
-typedef struct s_p
+typedef struct s_pack
 {
 	t_philo					*ph;
 	t_arg					a;

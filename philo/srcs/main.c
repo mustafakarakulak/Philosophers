@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:12 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/14 20:15:00 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/15 13:23:02 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	main(int argc, char **argv)
 	t_pack		*data;
 
 	data = malloc(sizeof(t_pack));
-	if (!(parse_args(argc, argv, data)))
+	if (parse_args(argc, argv, data))
 		return (ft_exit("Invalid Arguments\n"));
 	data->ph = malloc(sizeof(t_philo) * data->a.total);
 	if (!data->ph)
 		return (ft_exit("Malloc returned NULL\n"));
-	if (!initialize(data) || !threading(data))
+	if (initialize(data) || threading(data))
 	{
 		free(data->ph);
 		return (0);

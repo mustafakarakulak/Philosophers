@@ -1,0 +1,28 @@
+NAME		=	philo_bonus
+
+HEADER		=	./include/
+
+CC			=	gcc
+
+CFLAGS		=	-Werror -Wall -Wextra -g -I -pthread
+
+SRCS		=	srcs/initialize.c \
+				srcs/parsing.c \
+				srcs/main.c \
+				srcs/utils.c \
+
+OBJS		=	$(SRCS:.c=.o)
+
+all			:	$(NAME)
+
+$(NAME)		:	$(OBJS)
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+				rm -rf $(OBJS)
+
+clean		:
+				rm -rf $(NAME)
+
+fclean		:
+				rm -rf $(NAME)
+
+re			:	fclean all

@@ -6,13 +6,13 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 07:53:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 07:53:40 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/15 13:25:15 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void ft_create_semaphores(t_simulation *simulation)
+void	ft_create_semaphores(t_simulation *simulation)
 {
 	sem_unlink("death");
 	sem_unlink("message");
@@ -22,12 +22,12 @@ void ft_create_semaphores(t_simulation *simulation)
 	simulation->message = sem_open("message", O_CREAT, 0600, 1);
 	simulation->stop = sem_open("stop", O_CREAT, 0600, 1);
 	simulation->forks = sem_open("forks", O_CREAT, 0600,
-								 simulation->philo_numbers);
+			simulation->philo_numbers);
 }
 
-void ft_destroy_all(t_simulation *simulation, t_philo *philo)
+void	ft_destroy_all(t_simulation *simulation, t_philo *philo)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < simulation->philo_numbers)
@@ -39,10 +39,10 @@ void ft_destroy_all(t_simulation *simulation, t_philo *philo)
 	free(philo);
 }
 
-t_philo *ft_philo_init(t_simulation *simulation)
+t_philo	*ft_philo_init(t_simulation *simulation)
 {
-	t_philo *philo;
-	int i;
+	t_philo	*philo;
+	int		i;
 
 	i = -1;
 	philo = malloc(sizeof(t_philo) * simulation->philo_numbers);
@@ -55,7 +55,7 @@ t_philo *ft_philo_init(t_simulation *simulation)
 	return (philo);
 }
 
-void ft_for_each_philo(t_simulation *simulation, t_philo *philo, int i)
+void	ft_for_each_philo(t_simulation *simulation, t_philo *philo, int i)
 {
 	philo[i].index = i;
 	philo[i].is_dead = NO;
@@ -67,9 +67,9 @@ void ft_for_each_philo(t_simulation *simulation, t_philo *philo, int i)
 		philo[i].eat_counter = simulation->eat_counter;
 }
 
-void ft_print_message(int id, t_philo *philo)
+void	ft_print_message(int id, t_philo *philo)
 {
-	unsigned int time;
+	unsigned int	time;
 
 	time = ft_get_time() - philo->data->start;
 	sem_wait(philo->data->message);
