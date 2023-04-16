@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:09 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:34:35 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:47:20 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	initialize(t_pack *p)
 		p->ph[i].id = i + 1;
 		p->ph[i].ms_eat = p->a.start_t;
 		p->ph[i].nb_eat = 0;
-		p->ph[i].finish = 0;
 		p->ph[i].r_f = NULL;
 		pthread_mutex_init(&p->ph[i].l_f, NULL);
 		if (i == p->a.total - 1)

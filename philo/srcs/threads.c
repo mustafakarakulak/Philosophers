@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:15 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 14:48:00 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:27:48 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	*is_dead(void	*data)
 	ft_usleep(ph->pa->die + 1);
 	pthread_mutex_lock(&ph->pa->time_eat);
 	pthread_mutex_lock(&ph->pa->finish);
-	if (check_death(ph, 0) && !ph->finish && ((actual_time() - ph->ms_eat) \
+	if (check_death(ph, 0) && ((actual_time() - ph->ms_eat) \
 		>= (long)(ph->pa->die)))
 	{
 		pthread_mutex_unlock(&ph->pa->time_eat);
 		pthread_mutex_unlock(&ph->pa->finish);
 		pthread_mutex_lock(&ph->pa->write_mutex);
-		write_status("died\n", ph);
+		ft_write("died\n", ph);
 		pthread_mutex_unlock(&ph->pa->write_mutex);
 		check_death(ph, 1);
 	}
@@ -50,7 +50,6 @@ void	*thread(void *data)
 		if ((int)++ph->nb_eat == ph->pa->m_eat)
 		{
 			pthread_mutex_lock(&ph->pa->finish);
-			ph->finish = 1;
 			ph->pa->nb_p_finish++;
 			if (ph->pa->nb_p_finish == ph->pa->total)
 			{

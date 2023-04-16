@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:21 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 14:06:58 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:30:55 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	check_death(t_philo *ph, int i)
 	pthread_mutex_lock(&ph->pa->dead);
 	if (i)
 		ph->pa->stop = i;
+	if (ph->id == 1)
+	{
+		pthread_mutex_unlock(&ph->pa->dead);
+		return (0);
+	}
 	if (ph->pa->stop)
 	{
 		pthread_mutex_unlock(&ph->pa->dead);

@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:04:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:24:33 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:20:46 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_philo
 	t_arg					*pa;
 	long int				ms_eat;
 	unsigned int			nb_eat;
-	int						finish;
 }							t_philo;
 
 typedef struct s_pack
@@ -58,7 +57,7 @@ int				ft_atoi(const char *str);
 int				parse_args(int argc, char **argv, t_pack *p);
 int				initialize(t_pack *p);
 int				ft_error(char *str);
-void			write_status(char *str, t_philo *ph);
+void			ft_write(char *str, t_philo *ph);
 long int		actual_time(void);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_time(long int time_in_ms);
@@ -68,5 +67,6 @@ int				check_death(t_philo *ph, int i);
 int				ft_strlen(char *str);
 void			ft_usleep(long int time_in_ms);
 int				ft_exit(char *str);
+void			*is_dead(void *data);
 
 #endif
