@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:12 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 01:22:17 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 05:40:23 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	philo(data);
+	free(data);
 }

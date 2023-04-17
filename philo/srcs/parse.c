@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 04:57:48 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:19:15 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 05:40:07 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	parse_args(int argc, char **argv, t_pack *p)
 		if (argc == 6)
 			p->a.m_eat = ft_atoi(argv[5]);
 		if (p->a.total <= 0 || p->a.die <= 0 || p->a.eat <= 0
-			|| p->a.sleep <= 0)
+			|| p->a.sleep <= 0 || p->a.m_eat == 0)
 			return (1);
 		return (0);
 	}

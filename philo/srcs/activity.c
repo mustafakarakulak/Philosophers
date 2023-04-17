@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:05 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 01:17:36 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 05:27:08 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	activity(t_philo *ph)
 	pthread_mutex_unlock(&ph->pa->write_mutex);
 	if (!ph->r_f)
 	{
-		ft_usleep(ph->pa->die * 2);
-		return ;
+		ft_usleep(ph->pa->die);
+		is_dead(ph);
 	}
 	pthread_mutex_lock(ph->r_f);
 	pthread_mutex_lock(&ph->pa->write_mutex);
