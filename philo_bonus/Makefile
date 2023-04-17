@@ -17,12 +17,11 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-				rm -rf $(OBJS)
 
 clean		:
-				rm -rf $(NAME)
+				rm -rf $(OBJS)
 
 fclean		:
-				rm -rf $(NAME)
+				rm -rf $(NAME) $(OBJS)
 
 re			:	fclean all

@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 07:53:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:25:15 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:36:29 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_philo	*ft_philo_init(t_simulation *simulation)
 void	ft_for_each_philo(t_simulation *simulation, t_philo *philo, int i)
 {
 	philo[i].index = i;
-	philo[i].is_dead = NO;
+	philo[i].is_dead = 0;
 	philo[i].data = simulation;
 	philo[i].pid = -1;
 	if (simulation->eat_counter == -1)
@@ -73,18 +73,18 @@ void	ft_print_message(int id, t_philo *philo)
 
 	time = ft_get_time() - philo->data->start;
 	sem_wait(philo->data->message);
-	if (id == FORK)
+	if (id == 1)
 		printf("%u\t%d has taken a fork\n", time, philo->index + 1);
-	else if (id == EATING)
+	else if (id == 2)
 		printf("%u\t%d is eating\n", time, philo->index + 1);
-	else if (id == SLEEPING)
+	else if (id == 3)
 		printf("%u\t%d is sleeping\n", time, philo->index + 1);
-	else if (id == THINKING)
+	else if (id == 4)
 		printf("%u\t%d is thinking\n", time, philo->index + 1);
-	else if (id == DIED)
+	else if (id == 5)
 		printf("%u\t%d died\n", time, philo->index + 1);
-	else if (id == DONE)
+	else if (id == 6)
 		printf("Simulation is Done :)\n");
-	if (id != DIED)
+	if (id != 5)
 		sem_post(philo->data->message);
 }

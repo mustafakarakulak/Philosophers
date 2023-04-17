@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_bonus.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 06:01:28 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 13:17:55 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:39:33 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_check_death(void *arg)
 		sem_wait(philo->data->death);
 		if (philo->next_meal < ft_get_time())
 		{
-			ft_print_message(DIED, philo);
+			ft_print_message(5, philo);
 			sem_post(philo->data->stop);
 			break ;
 		}
@@ -31,7 +31,7 @@ void	*ft_check_death(void *arg)
 		if ((philo->data->eat_counter != -1)
 			&& (philo->data->current_eat >= philo->data->max_eat))
 		{
-			ft_print_message(DONE, philo);
+			ft_print_message(6, philo);
 			sem_post(philo->data->stop);
 			break ;
 		}
@@ -52,7 +52,7 @@ void	ft_routine(t_philo *philo)
 		ft_take_fork(philo);
 		ft_eat(philo);
 		ft_sleep(philo);
-		ft_print_message(THINKING, philo);
+		ft_print_message(4, philo);
 	}
 }
 
