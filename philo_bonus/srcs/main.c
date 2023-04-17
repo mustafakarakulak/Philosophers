@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 06:01:28 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 15:39:33 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:04:44 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	*ft_check_death(void *arg)
 		if ((philo->data->eat_counter != -1)
 			&& (philo->data->current_eat >= philo->data->max_eat))
 		{
-			ft_print_message(6, philo);
 			sem_post(philo->data->stop);
 			break ;
 		}

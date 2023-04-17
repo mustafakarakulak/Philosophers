@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:15 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 05:44:12 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:56:41 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	*is_dead(void	*data)
 		pthread_mutex_unlock(&ph->pa->time_eat);
 		pthread_mutex_unlock(&ph->pa->finish);
 		pthread_mutex_lock(&ph->pa->write_mutex);
-		ft_write("died\n", ph);
+		if (!ph->death_flag)
+			ft_write("died\n", ph);
+		ph->death_flag = 1;
 		pthread_mutex_unlock(&ph->pa->write_mutex);
 		check_death(ph, 1);
 	}

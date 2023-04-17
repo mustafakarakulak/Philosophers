@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 07:53:55 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 12:48:29 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:02:49 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ unsigned int	ft_get_time(void)
 void	ft_take_fork(t_philo *philo)
 {
 	sem_wait(philo->data->forks);
-	ft_print_message(FORK, philo);
+	ft_print_message(1, philo);
 	sem_wait(philo->data->forks);
-	ft_print_message(FORK, philo);
+	ft_print_message(7, philo);
 }
 
 void	ft_eat(t_philo *philo)
 {
-	ft_print_message(EATING, philo);
+	ft_print_message(2, philo);
 	if (philo->data->eat_counter != -1)
 		philo->data->current_eat++;
 	usleep(philo->data->time_to_eat * 1000);
@@ -43,6 +43,6 @@ void	ft_eat(t_philo *philo)
 
 void	ft_sleep(t_philo *philo)
 {
-	ft_print_message(SLEEPING, philo);
+	ft_print_message(3, philo);
 	usleep(philo->data->time_to_sleep * 1000);
 }

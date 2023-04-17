@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:12 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 05:40:23 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:03:32 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	philo(t_pack *p)
 	int	i;
 
 	i = -1;
+	p->ph->death_flag = 0;
 	while (check_death2(p))
-		ft_usleep(1);
+		ft_usleep(100);
 	while (++i < p->a.total)
 		pthread_join(p->ph[i].thread_id, NULL);
 	pthread_mutex_destroy(&p->a.write_mutex);

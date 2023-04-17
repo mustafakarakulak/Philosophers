@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 06:03:17 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 15:39:16 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:50:20 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,6 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <signal.h>
-
-# define FORK 1
-# define EATING 2
-# define SLEEPING 3
-# define THINKING 4
-# define DIED 5
-# define DONE 6
 
 typedef struct s_simulation
 {
