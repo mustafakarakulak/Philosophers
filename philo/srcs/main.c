@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:05:12 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 18:04:18 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:44:45 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	philo(t_pack *p)
 	int	i;
 
 	i = -1;
-	p->ph->death_flag = 0;
 	while (check_death2(p))
 		ft_usleep(1);
 	while (++i < p->a.total)

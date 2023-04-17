@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 18:04:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 17:50:38 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:43:30 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_philo
 	t_arg					*pa;
 	long int				ms_eat;
 	unsigned int			nb_eat;
-	int						death_flag;
 }							t_philo;
 
 typedef struct s_pack
