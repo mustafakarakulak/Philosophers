@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:35:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:40:19 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:44:24 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_routine(t_philo *philo)
 {
 	pthread_t	death;
 
-	philo->next_meal = ft_get_time() + (unsigned int)philo->data->time_to_die;
+	philo->next_meal = gettime() + (unsigned int)philo->data->time_to_die;
 	pthread_create(&death, NULL, ft_check_death, philo);
 	pthread_detach(death);
 	while (1)

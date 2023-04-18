@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 06:03:17 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:37:35 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:44:13 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_philo
 	int				eat_counter;
 }					t_philo;
 
-unsigned int	ft_get_time(void);
+unsigned int	gettime(void);
 void			ft_routine(t_philo *philo);
 void			ft_eat(t_philo *philo);
 void			ft_sleep(t_philo *philo);

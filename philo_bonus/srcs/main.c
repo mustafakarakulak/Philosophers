@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 06:01:28 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:37:44 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:44:21 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 		if (ft_parsing(av, &simulation))
 			return (1);
 		philo = ft_philo_init(&simulation);
-		simulation.start = ft_get_time();
+		simulation.start = gettime();
 		ft_create_semaphores(&simulation);
 		sem_wait(simulation.stop);
 		ft_create_process(&simulation, philo);

@@ -6,13 +6,13 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 07:53:55 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 16:02:49 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:44:40 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-unsigned int	ft_get_time(void)
+unsigned int	gettime(void)
 {
 	struct timeval	current_time;
 
@@ -34,7 +34,7 @@ void	ft_eat(t_philo *philo)
 	if (philo->data->eat_counter != -1)
 		philo->data->current_eat++;
 	usleep(philo->data->time_to_eat * 1000);
-	philo->eating_time = ft_get_time();
+	philo->eating_time = gettime();
 	philo->next_meal = philo->eating_time
 		+ (unsigned int)philo->data->time_to_die;
 	sem_post(philo->data->forks);

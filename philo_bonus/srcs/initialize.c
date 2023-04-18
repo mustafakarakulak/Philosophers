@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 07:53:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 16:04:48 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:44:19 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_print_message(int id, t_philo *philo)
 {
 	unsigned int	time;
 
-	time = ft_get_time() - philo->data->start;
+	time = gettime() - philo->data->start;
 	sem_wait(philo->data->message);
 	if (id == 1)
 		printf("%u\t%d has taken a left fork\n", time, philo->index + 1);

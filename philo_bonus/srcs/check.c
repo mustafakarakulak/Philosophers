@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:34:32 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:34:58 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:44:16 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_check_death(void *arg)
 	while (1)
 	{
 		sem_wait(philo->data->death);
-		if (philo->next_meal < ft_get_time())
+		if (philo->next_meal < gettime())
 		{
 			ft_print_message(5, philo);
 			sem_post(philo->data->stop);
