@@ -9,7 +9,7 @@ CFLAGS		=	-Werror -Wall -Wextra -g -I -pthread
 SRCS		=	src/activity.c \
 				src/initialize.c \
 				src/main.c \
-				src/start.c \
+				src/threads.c \
 				src/utils.c \
 				src/check.c \
 

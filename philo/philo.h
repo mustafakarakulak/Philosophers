@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:10:31 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 19:09:11 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:20:26 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_philo
 	struct timeval	tv;
 	pthread_mutex_t	*lock;
 	pthread_mutex_t	*mutex;
-	pthread_mutex_t	*l_mutex;
-	pthread_mutex_t	*r_mutex;
+	pthread_mutex_t	*l_fork;
+	pthread_mutex_t	*r_fork;
 	unsigned long	t_eat;
 	unsigned long	t_die;
 	unsigned long	t_sleep;
@@ -59,6 +59,6 @@ void	ft_think(t_philo *philo);
 void	ft_sleep(t_philo *philo);
 void	ft_eat(t_philo *philo);
 int		ft_atoi(char *s);
-void	go_kill(t_philo *philo);
+void	ft_kill(t_philo *philo);
 
 #endif

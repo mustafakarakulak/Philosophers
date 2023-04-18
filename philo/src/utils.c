@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:18:53 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 18:30:17 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:21:23 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	gettime(t_philo *philo)
 	pthread_mutex_unlock(philo->lock);
 }
 
-void	go_kill(t_philo *philo)
+void	ft_kill(t_philo *philo)
 {
 	pthread_mutex_lock(philo->lock);
 	if (!*philo->ph_dead)
@@ -45,7 +45,7 @@ int	ft_usleep(t_philo *philo, long ms)
 		gettime(philo);
 		if (philo->start_time > philo->death)
 		{
-			go_kill(philo);
+			ft_kill(philo);
 			return (0);
 		}
 		usleep(100);
@@ -66,4 +66,18 @@ int	ft_atoi(char *num)
 		i++;
 	}
 	return (res);
+}
+
+int	is_digit(char *arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		if (arr[i] < '0' || arr[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

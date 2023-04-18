@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:26:07 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 19:09:32 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:18:12 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,6 @@ void	create_thread(t_philo *philo, int philo_count)
 	{
 		pthread_create(&philo[i].thread, NULL, (void *)philo_life, &philo[i]);
 		pthread_detach(philo[i].thread);
-		i += 2;
-	}
-	usleep(600);
-	i = 1;
-	while (i < philo_count)
-	{
-		pthread_create(&philo[i].thread, NULL, (void *)philo_life, &philo[i]);
-		pthread_detach(philo[i].thread);
-		i += 2;
+		i += 1;
 	}
 }

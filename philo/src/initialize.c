@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:20:59 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 19:04:34 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:12:39 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	set_mutex(t_philo *philo, int size)
 	i = 1;
 	while (i < size)
 	{
-		philo[i].r_mutex = &mutex[i];
-		philo[i].l_mutex = &mutex[i - 1];
+		philo[i].r_fork = &mutex[i];
+		philo[i].l_fork = &mutex[i - 1];
 		i++;
 	}
-	philo[0].r_mutex = &mutex[0];
-	philo[0].l_mutex = &mutex[size - 1];
+	philo[0].r_fork = &mutex[0];
+	philo[0].l_fork = &mutex[size - 1];
 }
 
 void	set_basic(t_philo *philo, char **av)

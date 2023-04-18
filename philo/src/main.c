@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:10:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 19:07:38 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:13:34 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,6 @@ void	ft_free(t_philo *philo)
 	free(philo->is_full);
 	free(philo->ph_dead);
 	free(philo);
-}
-
-int	is_digit(char *arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		if (arr[i] < '0' || arr[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 int	main(int ac, char **av)
