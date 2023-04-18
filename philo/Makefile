@@ -6,13 +6,12 @@ CC			=	gcc
 
 CFLAGS		=	-Werror -Wall -Wextra -g -I -pthread
 
-SRCS		=	srcs/main.c \
-				srcs/activity.c \
-				srcs/threads.c \
-				srcs/initialize.c \
-				srcs/parse.c \
-				srcs/utils_philo.c \
-				srcs/utils_lib.c \
+SRCS		=	src/activity.c \
+				src/initialize.c \
+				src/main.c \
+				src/start.c \
+				src/utils.c \
+				src/check.c \
 
 OBJS		=	$(SRCS:.c=.o)
 

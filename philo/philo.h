@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 18:04:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/17 18:43:30 by mkarakul         ###   ########.fr       */
+/*   Created: 2023/04/18 17:10:31 by mkarakul          #+#    #+#             */
+/*   Updated: 2023/04/18 19:09:11 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,51 @@
 # define PHILO_H
 
 # include <stdio.h>
-# include <unistd.h>
 # include <stdlib.h>
-# include <sys/time.h>
 # include <pthread.h>
-
-typedef struct s_arg
-{
-	int						total;
-	int						die;
-	int						eat;
-	int						sleep;
-	int						m_eat;
-	long int				start_t;
-	pthread_mutex_t			write_mutex;
-	pthread_mutex_t			dead;
-	pthread_mutex_t			time_eat;
-	pthread_mutex_t			finish;
-	int						nb_p_finish;
-	int						stop;
-}							t_arg;
+# include <sys/time.h>
+# include <unistd.h>
+# include <signal.h>
+# include <sys/types.h>
 
 typedef struct s_philo
 {
-	int						id;
-	pthread_t				thread_id;
-	pthread_t				thread_death_id;
-	pthread_mutex_t			*r_f;
-	pthread_mutex_t			l_f;
-	t_arg					*pa;
-	long int				ms_eat;
-	unsigned int			nb_eat;
-}							t_philo;
+	struct timeval	tv;
+	pthread_mutex_t	*lock;
+	pthread_mutex_t	*mutex;
+	pthread_mutex_t	*l_mutex;
+	pthread_mutex_t	*r_mutex;
+	unsigned long	t_eat;
+	unsigned long	t_die;
+	unsigned long	t_sleep;
+	unsigned long	last_meal;
+	pthread_t		thread;
+	long			start_time;
+	long			death;
+	long			ms;
+	long			start;
+	int				philo_id;
+	int				philo_count;
+	int				eat_c;
+	int				*ph_dead;
+	int				*is_full;
+	int				max_eat_count;
+}					t_philo;
 
-typedef struct s_pack
-{
-	t_philo					*ph;
-	t_arg					a;
-}							t_pack;
-
-int				ft_atoi(const char *str);
-int				parse_args(int argc, char **argv, t_pack *p);
-int				initialize(t_pack *p);
-int				ft_error(char *str);
-void			ft_write(char *str, t_philo *ph);
-long int		actual_time(void);
-void			ft_putstr_fd(char *s, int fd);
-void			ft_time(long int time_in_ms);
-int				threading(t_pack *p);
-void			activity(t_philo *ph);
-int				check_death(t_philo *ph, int i);
-int				ft_strlen(char *str);
-void			ft_usleep(long int time_in_ms);
-int				ft_exit(char *str);
-void			*is_dead(void *data);
+int		is_digit(char *arr);
+int		check_arg(int ac, char **av);
+void	dead_check(t_philo *philo);
+void	init_philo(t_philo *philo, char **av, int size);
+void	set_basic(t_philo *philo, char **av);
+void	set_mutex(t_philo *philo, int size);
+void	create_thread(t_philo *philo, int philo_count);
+void	gettime(t_philo *philo);
+void	take_fork(t_philo *philo);
+int		ft_usleep(t_philo *philo, long ms);
+void	ft_think(t_philo *philo);
+void	ft_sleep(t_philo *philo);
+void	ft_eat(t_philo *philo);
+int		ft_atoi(char *s);
+void	go_kill(t_philo *philo);
 
 #endif
