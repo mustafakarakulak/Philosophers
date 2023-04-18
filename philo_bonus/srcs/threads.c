@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:35:46 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:44:24 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:31:33 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	ft_routine(t_philo *philo)
 	{
 		ft_take_fork(philo);
 		ft_eat(philo);
+		if (philo->data->max_eat * philo->data->philo_numbers
+			== philo->data->eat_counter)
+		{
+			sem_post(philo->data->stop);
+			exit(0);
+		}
 		ft_sleep(philo);
 		ft_print_message(4, philo);
 	}

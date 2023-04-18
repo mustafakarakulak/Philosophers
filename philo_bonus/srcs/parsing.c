@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 07:49:54 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/15 07:52:53 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:28:25 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,7 @@ int	ft_parsing(char **av, t_simulation *simulation)
 		simulation->current_eat = -1;
 		simulation->max_eat = -1;
 	}
+	else
+		simulation->max_eat = atoi(av[5]);
 	return (0);
 }
