@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:10:31 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:20:26 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:41:53 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_philo
 	int				eat_c;
 	int				*ph_dead;
 	int				*is_full;
-	int				max_eat_count;
+	int				max_eat;
 }					t_philo;
 
 int		is_digit(char *arr);

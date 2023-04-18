@@ -5,44 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 17:10:27 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:42:00 by mkarakul         ###   ########.fr       */
+/*   Created: 2023/04/15 06:01:28 by mkarakul          #+#    #+#             */
+/*   Updated: 2023/04/18 20:37:44 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	ft_free(t_philo *philo)
-{
-	int	i;
-
-	i = 0;
-	while (i < philo->philo_count)
-		pthread_mutex_destroy(&philo->mutex[i++]);
-	pthread_mutex_destroy(philo->lock);
-	free(philo->mutex);
-	free(philo->lock);
-	free(philo->is_full);
-	free(philo->ph_dead);
-	free(philo);
-}
-
 int	main(int ac, char **av)
 {
-	t_philo	*philo;
-	int		size;
+	int				i;
+	t_philo			*philo;
+	t_simulation	simulation;
 
-	if (!check_arg(ac, av))
-		return (1);
-	size = ft_atoi(av[1]);
-	philo = malloc(sizeof(t_philo) * size);
-	set_mutex(philo, size);
-	init_philo(philo, av, size);
-	create_thread(philo, size);
-	dead_check(philo);
-	if (philo->max_eat != -1)
-		printf("Philosophers ate %d of meal(s) in total and died.\n",
-			philo->eat_c);
-	ft_free(philo);
+	i = 0;
+	if (ac == 5 || ac == 6)
+	{
+		if (ft_parsing(av, &simulation))
+			return (1);
+		philo = ft_philo_init(&simulation);
+		simulation.start = ft_get_time();
+		ft_create_semaphores(&simulation);
+		sem_wait(simulation.stop);
+		ft_create_process(&simulation, philo);
+		sem_wait(simulation.stop);
+		ft_destroy_all(&simulation, philo);
+	}
+	else
+		printf("Error: Too many arguments\n");
 	return (0);
 }

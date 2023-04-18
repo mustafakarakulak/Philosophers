@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:20:59 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:12:39 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:41:57 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	set_basic(t_philo *philo, char **av)
 		philo[i].t_sleep = ft_atoi(av[4]);
 		philo[i].death = ft_atoi(av[2]);
 		if (av[5])
-			philo[i].max_eat_count = ft_atoi(av[5]);
+			philo[i].max_eat = ft_atoi(av[5]);
 		else
-			philo[i].max_eat_count = -1;
+			philo[i].max_eat = -1;
 		i++;
 	}
 }
