@@ -6,7 +6,7 @@
 /*   By: mkarakul <mkarakul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:26:07 by mkarakul          #+#    #+#             */
-/*   Updated: 2023/04/18 20:18:12 by mkarakul         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:24:59 by mkarakul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	create_thread(t_philo *philo, int philo_count)
 		pthread_create(&philo[i].thread, NULL, (void *)philo_life, &philo[i]);
 		pthread_detach(philo[i].thread);
 		i += 1;
+		usleep(200);
 	}
 }
